@@ -2,6 +2,7 @@
 
 ## From the sitepoint's book Javascript Novice to Ninja
 
-* Contains:
+**Table of Contents:**
+
   1. Programming Basics.
   2. Arrays, Logic and Loops.
