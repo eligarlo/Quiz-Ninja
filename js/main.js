@@ -1,8 +1,8 @@
-//==============            Welcome the user to the Quiz Ninja              ============
+/* ==============            Welcome the user to the Quiz Ninja              ============ */
 
 alert("Welcome to Quiz Ninja!");
 
-/*  ==========          Questions and Answers        =============== */
+/* ==========          Questions and Answers        =============== */
 
 const quiz = new Map([
     ["What is Superman's real name?", "Clark Kent"],
@@ -10,23 +10,47 @@ const quiz = new Map([
     ["What is Batman's real name?", "Bruce Wayne"]
 ]);
 
-//-----------------         Looping the Questions of the Quiz         -----------------
+/* ==============         Start of the Quiz         ============= */
 
-let score = 0 // Initialize score
+function start(quiz) {
 
-for (const [question, answer] of quiz.entries()) {
+    // Initialize score
+    let score = 0
 
-    // get answer from user
-    const response = prompt(question);
-    // check if answer is correct
-    if (response === answer) {
-        // increase score by 1
-        score++;
-        alert(`Correct! Your score is ${score}`);
-    } else {
-        alert(`Wrong! The correct answer was ${answer}`);
+    // Main game loop
+    for (const [question, answer] of quiz.entries()) {
+
+        // Get answer from user
+        const response = ask(question);
+        // Check if answer is correct
+        check(response, answer);
+    }
+    // End of main game loop
+
+    gameOver();
+
+    /* =========      Function declarations      ========== */
+
+    function ask(question) {
+        // Ask the question
+        return prompt(question);
+    }
+
+    function check(response, answer) {
+        // Check if answer is correct
+        if (response === answer) {
+            // Increase score by 1
+            score++;
+            alert(`Correct! Your score is ${score}`);
+        } else {
+            alert(`Wrong! The correct answer was ${answer}`);
+        }
+    }
+
+    function gameOver() {
+        // At the end of the game, report the player's score
+        alert(`Game over, you scored ${score} point${score !== 1 ? 's' : ''}`); // If ${score} is plural this condition (${score !==1 ? 's' : ''}) will add a 's' at the end
     }
 }
 
-// At the end of the game, report the player's score
-alert(`Game over, you scored ${score} point${score !== 1 ? 's' : ''}`); // If ${score} is plural this condition (${score !==1 ? 's' : ''}) will add a 's' at the end
+start(quiz);
