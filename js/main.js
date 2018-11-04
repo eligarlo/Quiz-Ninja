@@ -61,4 +61,4 @@ const game = {
 }
 
 
-start(quiz);
+game.start(quiz);
