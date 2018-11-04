@@ -7,3 +7,4 @@
   1. Programming Basics.
   2. Arrays, Logic and Loops.
   3. Functions.
+  4. Objects.
